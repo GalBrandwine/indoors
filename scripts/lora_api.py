@@ -80,8 +80,9 @@ def uart_read(uart, msg):
         if b == '\xa5':
             cnt += 1
         else:
-            print("test b: {}".format(b))
-            print("--- Sync Error ---")
+            print("--- Sync Error: uart flushed ---")
+            uart.flush()
+            return False
             cnt = 0
     uart.timeout = 1
     hdr = uart.read(24)
