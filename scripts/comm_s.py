@@ -17,7 +17,7 @@ def main():
         lora_api.uart_read(ser, rx_msg)  # no timeout
         s_rx_cnt += 1
         s_tx_cnt += 1
-        rx_msg.log()
+        print("comm_s received: {}".format(rx_msg.payload))
         tx_msg.update_payload("%8d%8d" % (s_rx_cnt, s_rx_cnt) + " " * 200)
         ser.write(tx_msg.msg2bin())
         ret = lora_api.uart_read(ser, ack_msg)  # no timeout

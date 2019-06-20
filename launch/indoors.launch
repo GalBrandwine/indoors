@@ -11,7 +11,9 @@ A few notes:
 <launch>
 
     <!--        Simplest node for testing and examples-->
-    <node name="master_master" pkg="indoors" type="comm.py" output="screen">
-    </node>
+    <node name="comm_master" pkg="indoors" type="comm.py" output="screen" launch-prefix="xterm -e" />
+
+    <!--        Simplest node for testing and examples-->
+    <node name="comm_slave" pkg="indoors" type="comm_s.py" output="screen" launch-prefix="xterm -e" />
 </launch>
 

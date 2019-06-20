@@ -61,14 +61,15 @@ class Message:
         return ret
 
     def log(self):
-        self.logger.info("Opecode:     {}\n" +
-                         "param1:      {}\n" +
-                         "param2:      {}\n" +
-                         "payload len: {}\n" +
-                         "payload:     {}\n".format(
-                             self.opcode, self.param1, self.param2, self.payload_length, self.payload
-                         )
-                         )
+        # Simple print
+        print ("Opecode:     {}\n" +
+               "param1:      {}\n" +
+               "param2:      {}\n" +
+               "payload len: {}\n" +
+               "payload:     {}\n".format(
+                   self.opcode, self.param1, self.param2, self.payload_length, self.payload
+               )
+               )
 
 
 def uart_read(uart, msg):

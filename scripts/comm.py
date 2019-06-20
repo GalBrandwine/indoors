@@ -41,8 +41,9 @@ def main():
         else:
             ser.write(m)
         # ser.write(msg_m2s.msg2bin())
+        print("comm send: {}".format(msg_m2s.payload))
         ret = lora_api.uart_read(ser, msg_ack)
-        print ("test: {}".format(msg_ack.payload[:2]))
+        print ("comm received after sending: {}".format(msg_ack.payload[:2]))
         if (not ret) or msg_ack.payload[:2] != b'OK':
             print("host <-> LoRa com error")
             msg_ack.log()
